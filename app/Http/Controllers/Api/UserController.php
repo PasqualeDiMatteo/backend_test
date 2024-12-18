@@ -13,7 +13,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
         return response()->json(User::paginate(5));
     }
 
@@ -30,7 +29,6 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
         $user = User::find($id);
         if (!$user) return response(null, 404);
         return response()->json($user);
@@ -49,6 +47,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::find($id);
+        if (!$user) return response(null, 404);
+        $user->delete();
+        return response()->json(null, 204);
     }
 }
