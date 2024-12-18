@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,6 +14,7 @@ class UserController extends Controller
     public function index()
     {
         //
+        return response()->json(User::paginate(5));
     }
 
     /**
@@ -29,6 +31,9 @@ class UserController extends Controller
     public function show(string $id)
     {
         //
+        $user = User::find($id);
+        if (!$user) return response(null, 404);
+        return response()->json($user);
     }
 
     /**
