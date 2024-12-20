@@ -17,8 +17,10 @@ cp .env.example .env
 1. Esegui il seguente comando per generare una nuova chiave dell'applicazione:
 
 ```bash
-./vendor/bin/sail artisan key:generate
+./vendor/bin/sail php artisan key:generate
 ```
+
+Nota: Se utilizzi Windows, Sail richiede WSL 2 per funzionare correttamente.
 
 2. Modifica il file `.env` e configura i dettagli del database
 
@@ -46,11 +48,11 @@ Nota: Se utilizzi Windows, Sail richiede WSL 2 per funzionare correttamente.
 Con i container in esecuzione, esegui le migrazioni per configurare il database:
 
 ```bash
-./vendor/bin/sail artisan migrate
+./vendor/bin/sail php artisan migrate
 ```
 
 Puoi eseguire i seeder con:
 
 ```bash
-./vendor/bin/sail artisan db:seed
+./vendor/bin/sail php artisan db:seed
 ```
